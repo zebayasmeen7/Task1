@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRI-Cu-1Ta">
                         <rect key="frame" x="0.0" y="0.0" width="246" height="124"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Kyv-ZP-O8l">
-                                <rect key="frame" x="0.0" y="8" width="242" height="108"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kyv-ZP-O8l">
+                                <rect key="frame" x="8" y="8" width="230" height="108"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
@@ -31,9 +31,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Kyv-ZP-O8l" firstAttribute="leading" secondItem="hRI-Cu-1Ta" secondAttribute="leading" id="HN3-LT-rfd"/>
+                            <constraint firstItem="Kyv-ZP-O8l" firstAttribute="leading" secondItem="hRI-Cu-1Ta" secondAttribute="leading" constant="8" id="HN3-LT-rfd"/>
                             <constraint firstItem="Kyv-ZP-O8l" firstAttribute="top" secondItem="hRI-Cu-1Ta" secondAttribute="top" constant="8" id="KLA-0h-duC"/>
-                            <constraint firstAttribute="trailing" secondItem="Kyv-ZP-O8l" secondAttribute="trailing" constant="4" id="V1I-uA-MnS"/>
+                            <constraint firstAttribute="trailing" secondItem="Kyv-ZP-O8l" secondAttribute="trailing" constant="8" id="V1I-uA-MnS"/>
                             <constraint firstAttribute="bottom" secondItem="Kyv-ZP-O8l" secondAttribute="bottom" constant="8" id="p7i-zL-v8a"/>
                         </constraints>
                     </view>
@@ -54,7 +54,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Placeholder" width="300" height="168"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,6 +10,7 @@ import UIKit
 class BannerCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var bannerImgView: UIImageView!
+    @IBOutlet weak var imageLeadingContrnt: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -36,6 +36,7 @@ class ListViewController: UIViewController {
                 self.albumList = albumList
                 DispatchQueue.main.async {
                     self.listTableView.reloadData()
+                    self.collectionView?.reloadData()
                 }
             }
         }
@@ -88,9 +89,8 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             let bannerCell = tableView.dequeueReusableCell(withIdentifier: "BannerCell") as? BannerTableViewCell
             bannerCell?.bannerCollectionView.dataSource = self
             bannerCell?.bannerCollectionView.delegate = self
-            bannerCell?.bannerCollectionView.contentInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 0, right: 0)
             bannerCell?.bannerCollectionView.register(UINib(nibName: "BannerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BannerCollectionCell")
-            
+            bannerCell?.bannerPageControl.numberOfPages = (albumList?.count ?? 0) - 15
             bannerCell?.bannerPageControl.currentPage = selectedBannerIndex
             collectionView = bannerCell?.bannerCollectionView
             
@@ -136,33 +136,31 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
 //MARK:- CollectionView delegates and datasource
 extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return (albumList?.count ?? 0) - 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as? BannerCollectionViewCell
-        bannerCell?.bannerImgView.image = UIImage.init(named: "Placeholder\(indexPath.row)")
+        let album = albumList?[indexPath.row]
+        if let url = URL.init(string: album?.thumbnailUrl ?? "") {
+            bannerCell?.bannerImgView.loadImageFromUrl(url: url)
+        }
         return bannerCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: view.frame.width - 16, height: (view.frame.height * 30) / 100)
+        return CGSize.init(width: view.frame.width, height: (view.frame.height * 30) / 100)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+
         var visibleRect = CGRect()
-        visibleRect.origin = collectionView?.contentOffset ?? CGPoint.init(x: 0, y: 0)
-        visibleRect.size = collectionView?.bounds.size ?? CGSize.init(width: 0, height: 0)
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        guard let indexPath = collectionView?.indexPathForItem(at: visiblePoint) else { return }
-        selectedBannerIndex = indexPath.row
+        visibleRect.origin = scrollView.contentOffset
+        visibleRect.size = (scrollView.bounds.size)
+        let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        selectedBannerIndex = index
         listTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-        print(indexPath)
+        collectionView?.scrollRectToVisible(visibleRect, animated: false)
     }
 }
 

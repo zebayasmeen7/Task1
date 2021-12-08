@@ -19,9 +19,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-ES-ClP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaU-MO-hj1">
-                                        <rect key="frame" x="193" y="11.5" width="28" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaU-MO-hj1">
+                                        <rect key="frame" x="171.5" y="13.5" width="71.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -52,11 +52,13 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Gv-k1-EQE"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="afD-V1-rBu"/>
+                                    <outletCollection property="gestureRecognizers" destination="K5O-fu-4gT" appends="YES" id="ya4-y9-IOb"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Dtf-9V-xIV" firstAttribute="top" secondItem="TUd-ES-ClP" secondAttribute="bottom" id="3yH-24-H9Y"/>
                             <constraint firstItem="TUd-ES-ClP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4HB-dK-Nbd"/>
@@ -72,6 +74,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="K5O-fu-4gT">
+                    <connections>
+                        <action selector="tapgestureAction:" destination="BYZ-38-t0r" id="FF9-Zi-Gg3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="88.392857142857139"/>
         </scene>

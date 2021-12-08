@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaJ-nz-OId">
                         <rect key="frame" x="0.0" y="0.0" width="344" height="85"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NPC-P4-gDr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NPC-P4-gDr">
                                 <rect key="frame" x="15" y="20" width="20" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="4YA-VB-4bb"/>
@@ -80,7 +80,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Placeholder" width="150" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

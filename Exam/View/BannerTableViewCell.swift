@@ -14,10 +14,20 @@ class BannerTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    private func setupCell() {
+        bannerCollectionView.register(UINib(nibName: "BannerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BannerCollectionCell")
+    }
+    
+    func loadTableviewCellData(bannerCount: Int, index: Int) {
+        bannerPageControl.numberOfPages = bannerCount - 15
+        bannerPageControl.currentPage = index
     }
     
 }

@@ -11,7 +11,7 @@ struct AlbumListService {
     
     typealias completionHandler = (_ response: [Album]?, _ isSuccess:Bool) -> Void
     
-    func getAlbumList(completion: @escaping completionHandler) {
+    func getAlbumListFromServer(completion: @escaping completionHandler) {
         
         NetworkManager.shared.dataTask(serviceURL: Constant.listUrl, httpMethod: .get, parameters: nil) { response, error in
             if error == nil {
@@ -28,7 +28,6 @@ struct AlbumListService {
                             counter = counter + 1
                             if counter == 25 { break }
                         }
-                        debugPrint(albumList)
                         completion(albumList,true)
                     }
                 } catch {

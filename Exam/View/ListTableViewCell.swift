@@ -19,4 +19,11 @@ class ListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func loadDataInCell(album: Album?) {
+        titleLbl.text = album?.title
+        if let url = URL.init(string: album?.thumbnailUrl ?? "") {
+            leftImgView.loadImageFromUrl(url: url)
+        }
+    }
 }

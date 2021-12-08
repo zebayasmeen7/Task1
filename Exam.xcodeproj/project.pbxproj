@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92DA750F2760F1DA0063EB6F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA750E2760F1DA0063EB6F /* ListViewModel.swift */; };
+		92DA7513276118120063EB6F /* ListViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA7512276118120063EB6F /* ListViewController+TableViewDelegate.swift */; };
+		92DA7515276123F40063EB6F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DA7514276123F40063EB6F /* CustomSearchBar.swift */; };
 		92E53B90275F77180075BEEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E53B8F275F77180075BEEC /* AppDelegate.swift */; };
 		92E53B92275F77180075BEEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E53B91275F77180075BEEC /* SceneDelegate.swift */; };
 		92E53B97275F77180075BEEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E53B95275F77180075BEEC /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92DA750E2760F1DA0063EB6F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		92DA7512276118120063EB6F /* ListViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		92DA7514276123F40063EB6F /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		92E53B8C275F77180075BEEC /* Exam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E53B8F275F77180075BEEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E53B91275F77180075BEEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92DA750D2760F17B0063EB6F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92DA750E2760F1DA0063EB6F /* ListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		92E53B83275F77180075BEEC = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +94,11 @@
 			children = (
 				92E53B8F275F77180075BEEC /* AppDelegate.swift */,
 				92E53B91275F77180075BEEC /* SceneDelegate.swift */,
-				92E53BC1275FA17E0075BEEC /* Service */,
 				92E53BBC275FA02B0075BEEC /* Model */,
-				92E53BA3275F7C850075BEEC /* View */,
+				92E53BC1275FA17E0075BEEC /* Service */,
+				92DA750D2760F17B0063EB6F /* ViewModel */,
 				92E53BAA275F7F6D0075BEEC /* ViewController */,
+				92E53BA3275F7C850075BEEC /* View */,
 				92E53BB5275F97570075BEEC /* Supporting Files */,
 				92E53B95275F77180075BEEC /* Main.storyboard */,
 				92E53B98275F77190075BEEC /* Assets.xcassets */,
@@ -102,6 +117,7 @@
 				92E53BAE275F83750075BEEC /* ListTableViewCell.xib */,
 				92E53BB1275F8E070075BEEC /* BannerCollectionViewCell.swift */,
 				92E53BB2275F8E070075BEEC /* BannerCollectionViewCell.xib */,
+				92DA7514276123F40063EB6F /* CustomSearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				92E53BAB275F7FA90075BEEC /* ListViewController.swift */,
+				92DA7512276118120063EB6F /* ListViewController+TableViewDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -213,8 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DA7513276118120063EB6F /* ListViewController+TableViewDelegate.swift in Sources */,
+				92DA7515276123F40063EB6F /* CustomSearchBar.swift in Sources */,
 				92E53BA8275F7D0F0075BEEC /* BannerTableViewCell.swift in Sources */,
 				92E53B90275F77180075BEEC /* AppDelegate.swift in Sources */,
+				92DA750F2760F1DA0063EB6F /* ListViewModel.swift in Sources */,
 				92E53BBB275F9FBA0075BEEC /* Constant.swift in Sources */,
 				92E53BB7275F977C0075BEEC /* SupportingFiles.swift in Sources */,
 				92E53BB3275F8E070075BEEC /* BannerCollectionViewCell.swift in Sources */,

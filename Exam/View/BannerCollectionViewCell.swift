@@ -10,10 +10,14 @@ import UIKit
 class BannerCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var bannerImgView: UIImageView!
-    @IBOutlet weak var imageLeadingContrnt: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
+    func loadBannerImageCell(album: Album?) {
+        if let url = URL.init(string: album?.thumbnailUrl ?? "") {
+            bannerImgView.loadImageFromUrl(url: url)
+        }
+    }
 }

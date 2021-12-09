@@ -66,6 +66,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func changeBanner(sender: UIPageControl) {
+        listViewModel.setSelectedBannerIndex(index: sender.currentPage)
         let visibleRect = bannerCollectionView?.layoutAttributesForItem(at: IndexPath.init(row: sender.currentPage, section: 0))
         bannerCollectionView?.scrollRectToVisible(visibleRect?.frame ?? CGRect.init(x: 0, y: 0, width: view.frame.width, height: (view.frame.height * 30) / 100), animated: true)
     }

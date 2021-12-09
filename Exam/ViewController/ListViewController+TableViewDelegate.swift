@@ -69,6 +69,8 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         listViewModel.setSelectedBannerIndex(index: sender.currentPage)
         let visibleRect = bannerCollectionView?.layoutAttributesForItem(at: IndexPath.init(row: sender.currentPage, section: 0))
         bannerCollectionView?.scrollRectToVisible(visibleRect?.frame ?? CGRect.init(x: 0, y: 0, width: view.frame.width, height: (view.frame.height * 30) / 100), animated: true)
+        listViewModel.albumList?.shuffle()
+        listTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
     }
 }
 
@@ -94,6 +96,8 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
         let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         listViewModel.setSelectedBannerIndex(index: index)
         pageControl?.currentPage = listViewModel.selectedBannerIndex
+        listViewModel.albumList?.shuffle()
+        listTableView.reloadSections(IndexSet(integer: 1), with: .automatic)
     }
 }
 

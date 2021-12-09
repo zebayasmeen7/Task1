@@ -46,6 +46,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             let bannerCell = tableView.dequeueReusableCell(withIdentifier: "BannerCell") as? BannerTableViewCell
             bannerCell?.bannerCollectionView.dataSource = self
             bannerCell?.bannerCollectionView.delegate = self
+            bannerCell?.bannerPageControl.addTarget(self, action: #selector(changeBanner(sender:)), for: .touchUpInside)
             pageControl = bannerCell?.bannerPageControl
             bannerCollectionView = bannerCell?.bannerCollectionView
             bannerCell?.loadTableviewCellData(bannerCount: listViewModel.getListCount(), index: listViewModel.selectedBannerIndex)
@@ -62,6 +63,11 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         let searchBar = CustomSearchBar.init(frame: frame)
         searchBar.delegate = self
         return searchBar
+    }
+    
+    @objc func changeBanner(sender: UIPageControl) {
+        let visibleRect = bannerCollectionView?.layoutAttributesForItem(at: IndexPath.init(row: sender.currentPage, section: 0))
+        bannerCollectionView?.scrollRectToVisible(visibleRect?.frame ?? CGRect.init(x: 0, y: 0, width: view.frame.width, height: (view.frame.height * 30) / 100), animated: true)
     }
 }
 

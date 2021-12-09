@@ -49,7 +49,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             bannerCell?.bannerPageControl.addTarget(self, action: #selector(changeBanner(sender:)), for: .touchUpInside)
             pageControl = bannerCell?.bannerPageControl
             bannerCollectionView = bannerCell?.bannerCollectionView
-            bannerCell?.loadTableviewCellData(bannerCount: listViewModel.getListCount(), index: listViewModel.selectedBannerIndex)
+            bannerCell?.loadTableviewCellData(bannerCount: listViewModel.getBannerListCount(), index: listViewModel.selectedBannerIndex)
             return bannerCell ?? UITableViewCell()
         } else {
             let listCell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ListTableViewCell
@@ -78,12 +78,12 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
 extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listViewModel.getListCount() - 15
+        return listViewModel.getBannerListCount() - 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCollectionCell", for: indexPath) as? BannerCollectionViewCell
-        bannerCell?.loadBannerImageCell(album: listViewModel.getSelectedAlbum(index: indexPath.row))
+        bannerCell?.loadBannerImageCell(album: listViewModel.getSelectedBanner(index: indexPath.row))
         return bannerCell ?? UICollectionViewCell()
     }
     

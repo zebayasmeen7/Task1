@@ -13,6 +13,7 @@ protocol ListViewModelDelegate {
     func getSelectedAlbum(index: Int) -> Album?
     func setSelectedBannerIndex(index: Int)
     func searchList(searchText: String)
+    func getBannerListCount() -> Int
 }
 
 class ListViewModel: NSObject, ListViewModelDelegate {
@@ -42,6 +43,16 @@ class ListViewModel: NSObject, ListViewModelDelegate {
         } else {
             return searchAlbumList?.count ?? 0
         }
+    }
+    
+    /// Get album list count based on search
+    func getBannerListCount() -> Int {
+        return albumList?.count ?? 0
+    }
+    
+    /// Get album based on search / non-search
+    func getSelectedBanner(index: Int) -> Album? {
+        return albumList?[index]
     }
     
     /// Get album based on search / non-search
